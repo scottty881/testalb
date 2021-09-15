@@ -1,0 +1,13 @@
+schema: './schema.graphql'
+generates:
+  ./graphql/__generated__/resolvers-types.ts:
+    config:
+      useIndexSignature: true
+      enumsAsConst: true
+      mappers:
+        Loan: '@prisma/client#Loan as LoanModel'
+    plugins:
+      - add:
+          content: '/* eslint-disable */'
+      - typescript
+      - typescript-resolvers
